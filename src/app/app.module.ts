@@ -23,6 +23,7 @@ import { CouponComponent } from './coupon/coupon.component';
 import { ShowAllCouponsComponent } from './show-all-coupons/show-all-coupons.component';
 import { RedeemComponent } from './redeem/redeem.component';
 import { DatePipe } from '@angular/common';
+import { DashBoard2Component } from './dash-board2/dash-board2.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { DatePipe } from '@angular/common';
     CouponComponent,
     ShowAllCouponsComponent,
     RedeemComponent,
+    DashBoard2Component,
   ],
   imports: [
     BrowserModule,
