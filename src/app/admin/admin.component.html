@@ -1,0 +1,220 @@
+<div class="firstdiv" *ngIf="carData">
+  <div>
+    <button
+      style="margin-left: 1000px"
+      mat-raised-button
+      color="primary"
+      (click)="createCoupon()"
+    >
+      Create Coupon
+    </button>
+    <button
+      style="margin-left: 10px"
+      mat-raised-button
+      color="primary"
+      (click)="redeemCoupon()"
+    >
+      Redem show
+    </button>
+  </div>
+  <div class="maindiv">
+    <form [formGroup]="adminForm">
+      <div class="subdiv">
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select Brand</mat-label>
+            <mat-select
+              placeholder="brand"
+              formControlName="brand"
+              (selectionChange)="selectionChangecarmodels()"
+            >
+              <mat-option *ngFor="let item of carData" [value]="item.brand">{{
+                item.brand
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select model</mat-label>
+            <mat-select placeholder="model" formControlName="model">
+              <mat-option *ngFor="let item of models" [value]="item">{{
+                item
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select year</mat-label>
+            <mat-select placeholder="year" formControlName="year">
+              <mat-option
+                *ngFor="let item of data[0].makeYear"
+                [value]="item"
+                >{{ item }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select variant</mat-label>
+            <mat-select placeholder="variant" formControlName="variant">
+              <mat-option
+                *ngFor="let item of data[0].variants"
+                [value]="item"
+                >{{ item }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select km</mat-label>
+            <mat-select placeholder="km" formControlName="km">
+              <mat-option
+                *ngFor="let item of data[0].kmDriven"
+                [value]="item"
+                >{{ item }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+      </div>
+      <div class="subdiv">
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select features</mat-label>
+            <mat-select
+              placeholder="feature"
+              formControlName="features"
+              multiple="true"
+            >
+              <mat-option
+                *ngFor="let item of data[0].features"
+                [value]="item"
+                >{{ item }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select transmission</mat-label>
+            <mat-select
+              placeholder="transmission"
+              formControlName="transmission"
+            >
+              <mat-option
+                *ngFor="let item of data[0].transmissions"
+                [value]="item"
+                >{{ item }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select bodyType</mat-label>
+            <mat-select placeholder="body type" formControlName="bodyType">
+              <mat-option
+                *ngFor="let item of data[0].bodyTypes"
+                [value]="item"
+                >{{ item }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select color</mat-label>
+            <mat-select placeholder="color" formControlName="color">
+              <mat-option *ngFor="let item of data[0].colors" [value]="item">{{
+                item
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select seats</mat-label>
+            <mat-select placeholder="seats" formControlName="seats">
+              <mat-option *ngFor="let item of data[0].seats" [value]="item">{{
+                item
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+      </div>
+      <div class="subdiv">
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select owner</mat-label>
+            <mat-select placeholder="owner" formControlName="owner">
+              <mat-option *ngFor="let item of data[0].owners" [value]="item">{{
+                item
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select state</mat-label>
+            <mat-select
+              placeholder="state"
+              formControlName="state"
+              (selectionChange)="selectionChangecarstate()"
+            >
+              <mat-option *ngFor="let item of state" [value]="item.state">{{
+                item.state
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select stateCode</mat-label>
+            <mat-select placeholder="state code" formControlName="stateCode">
+              <mat-option *ngFor="let item of statecode" [value]="item">{{
+                item
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select city</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="city"
+              formControlName="city"
+            />
+          </mat-form-field>
+        </mat-card>
+        <mat-card class="mat-card">
+          <mat-form-field>
+            <mat-label>Select price</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="price"
+              formControlName="price"
+            />
+          </mat-form-field>
+        </mat-card>
+      </div>
+      <button
+        type="submit"
+        style="margin-left: 692px; width: 136px"
+        mat-raised-button
+        color="primary"
+        [disabled]="!adminForm.valid"
+        (click)="addData()"
+        [ngClass]="!adminForm.valid ? 'buttonRed' : 'buttonBlue'"
+      >
+        Add
+      </button>
+    </form>
+  </div>
+</div>

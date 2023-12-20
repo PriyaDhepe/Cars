@@ -1,0 +1,39 @@
+<div class="div">
+  <div class="firstdiv">
+    <form [formGroup]="registrationForm">
+      <mat-card>
+        <p style="margin-left: 75px"><b>Enter your user name</b></p>
+        <mat-form-field>
+          <mat-icon matPrefix>people</mat-icon>
+          <input
+            matInput
+            type="text"
+            placeholder="userName"
+            formControlName="username"
+          />
+        </mat-form-field>
+      </mat-card>
+      <mat-card>
+        <p style="margin-left: 75px"><b>Enter your password</b></p>
+        <mat-form-field>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input
+            matInput
+            type="password"
+            placeholder="password"
+            formControlName="password"
+          />
+        </mat-form-field>
+      </mat-card>
+      <button
+        style="margin-left: 114px"
+        mat-raised-button
+        type="submit"
+        color="primary"
+        (click)="login()"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>

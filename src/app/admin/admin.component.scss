@@ -1,0 +1,35 @@
+.maindiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.subdiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.mat-card {
+  width: 30%;
+  margin: 10px;
+  background: linear-gradient(129deg, #305572, transparent);
+}
+.image {
+  width: 20%;
+  height: 50%;
+}
+.firstdiv {
+  background: linear-gradient(140deg, #4c2727, transparent);
+  border: solid #6a2828;
+  margin-top: 20px;
+}
+
+.buttonRed {
+  background: rgb(107, 33, 33) !important;
+  color: white !important;
+}
+
+.buttonBlue {
+  background: blue !important;
+  color: white !important;
+}
