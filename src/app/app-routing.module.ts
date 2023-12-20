@@ -7,6 +7,7 @@ import { FilterComponent } from './filter/filter.component';
 import { SortComponent } from './sort/sort.component';
 import { CouponComponent } from './coupon/coupon.component';
 import { ShowAllCouponsComponent } from './show-all-coupons/show-all-coupons.component';
+import { DashBoard2Component } from './dash-board2/dash-board2.component';
 const routes: Routes = [
   {
     path: 'admin',
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'showcoupon',
     component: ShowAllCouponsComponent,
+  },
+  {
+    path: 'dashboard2',
+    component: DashBoard2Component,
   },
 ];
 

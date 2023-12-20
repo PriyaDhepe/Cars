@@ -1,0 +1,141 @@
+<div>
+  <mat-card class="mat-card">
+    <button class="filterbutton" mat-raised-button (click)="filterData()">
+      <mat-icon>filter_list</mat-icon>
+      Filter
+    </button>
+    <button
+      class="resetbutton"
+      mat-raised-button
+      color="warn"
+      (click)="resetData()"
+    >
+      Rest
+    </button>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Search Car</mat-label>
+      <input
+        style="margin-left: 250px"
+        matInput
+        type="text"
+        [(ngModel)]="searchCar"
+        placeholder="Search Here"
+      />
+    </mat-form-field>
+    <button
+      class="searchbutton"
+      mat-raised-button
+      color="primary"
+      (click)="searchData()"
+    >
+      search
+    </button>
+    <button style="height: 38px; width: 79px" (click)="reset()">reset</button>
+    <button class="sortbutton" mat-raised-button (click)="sortData()">
+      <mat-icon>filter_list</mat-icon>
+      Sort
+    </button>
+  </mat-card>
+</div>
+<div class="divsecondstyle">
+  <mat-card
+    *ngFor="let item of allCarDetails"
+    [ngClass]="item.bookCar ? 'booked' : 'notBooked'"
+  >
+    <img class="image" src="../../assets/images/{{ item.brand }}.jpeg" />
+    <p>
+      <b style="font-size: 20px; margin-left: 6px; font-family: math">{{
+        item.makeYear
+      }}</b>
+      <b
+        style="font-size: x-large; font-family: ui-monospace; margin-left: 34px"
+        >{{ item.brand }}</b
+      ><b
+        style="margin-left: 14px; font-family: monospace; font-size: x-large"
+        >{{ item.model }}</b
+      >
+    </p>
+
+    <p>
+      &nbsp;<b>{{ item.color }}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <b style="font-size: larger; font-family: 'Roboto'">{{ item.bodyType }}</b
+      >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="font-size: large">{{
+        item.variant
+      }}</b
+      >&nbsp;&nbsp;&nbsp;&nbsp;<b
+        style="font-size: 23px; font-family: serif; margin-left: 27px"
+        >{{ item.owner }}</b
+      >
+    </p>
+    <p>
+      &nbsp;&nbsp;<b style="font-size: larger">{{ item.state }}</b
+      >&nbsp;&nbsp;<b>{{ item.stateCode }}</b
+      >&nbsp;&nbsp;<b style="font-size: 16px">{{ item.city }}</b
+      >&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ item.transmission }}</b
+      >&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ item.seats }}</b>
+    </p>
+    <p
+      style="
+        background: #ede174;
+        border-radius: 52px;
+        text-align: center;
+        width: 296px;
+        margin-left: 31px;
+      "
+    >
+      {{ item.features }}
+    </p>
+
+    <p>
+      &nbsp;&nbsp;
+      <b style="font-size: large; color: blue">₹{{ item.discountPrice }}</b>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b
+        style="font-size: large"
+        >{{ item.kmDriven }}</b
+      >
+    </p>
+    <p>
+      &nbsp;&nbsp;&nbsp;&nbsp;<b style="text-decoration: line-through"
+        >₹{{ item.price }}</b
+      >&nbsp;&nbsp;&nbsp;&nbsp;<b
+        style="
+          margin-left: 143px;
+          font-size: large;
+          background: darkmagenta;
+          color: white;
+          border-radius: 4px;
+        "
+      >
+        &nbsp;{{ item.discount }} off &nbsp;&nbsp;
+      </b>
+    </p>
+    <mat-card style="flex-direction: row; display: flex">
+      <button
+        mat-raised-button
+        style="margin-left: 37px; background: antiquewhite"
+        (click)="addToCart(item)"
+      >
+        <b>Add To Cart</b>
+      </button>
+      <!-- <button (click)="addToWishList()"><b>Add To Wishlist</b></button> -->
+      <button
+        style="margin-left: 46px; width: 118px; background: aquamarine"
+        mat-raised-button
+        (click)="bookCar(item)"
+      >
+        <b>Book Car</b>
+      </button>
+      <b>
+        <i
+          style="font-size: x-large; margin-left: 10px"
+          class="fa fa-heart"
+          aria-hidden="true"
+          [ngClass]="item.wish ? 'fa-regular' : 'fa-solid'"
+          (click)="isInWishlist(item)"
+        >
+        </i>
+      </b>
+    </mat-card>
+  </mat-card>
+</div>
+<!-- product._id -->
