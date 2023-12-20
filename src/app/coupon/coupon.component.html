@@ -1,0 +1,65 @@
+<div style="margin-top: 50px">
+  <form [formGroup]="couponForm">
+    <mat-card class="mat-card">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Coupon"
+          formControlName="couponCode"
+        />
+      </mat-form-field>
+    </mat-card>
+    <mat-card class="mat-card">
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          placeholder="discount"
+          formControlName="discount"
+        />
+      </mat-form-field>
+    </mat-card>
+    <button
+      style="margin-left: 257px"
+      mat-raised-button
+      color="primary"
+      (click)="submitData()"
+    >
+      submit
+    </button>
+  </form>
+  <button
+    style="margin-left: 216px"
+    mat-raised-button
+    color="primary"
+    (click)="showAllCoupon()"
+  >
+    Show All Coupon
+  </button>
+</div>
+
+<div *ngIf="hideshow1">
+  <button
+    style="margin-left: 263px"
+    mat-raised-button
+    color="primary"
+    (click)="backtocontinue()"
+  >
+    Back
+  </button>
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Coupon Code</th>
+      <th>discount</th>
+      <th>remove coupon</th>
+    </tr>
+    <tr *ngFor="let item of couponData">
+      <td>{{ item._id }}</td>
+      <td>{{ item.couponCode }}</td>
+      <td>{{ item.couponPercentage }}%</td>
+      <td><button (click)="removeCoupon(item._id)">Remove</button></td>
+    </tr>
+  </table>
+</div>

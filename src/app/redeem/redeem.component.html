@@ -1,0 +1,27 @@
+<div>
+  <form [formGroup]="redeemForm">
+    <mat-card style="width: 42%; margin-left: 256px">
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder=" couponCode"
+          formControlName="couponCode"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder=" Discount in Percentage"
+          formControlName="discount"
+          readonly="true"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="submit()">
+        Submit
+      </button>
+    </mat-card>
+  </form>
+</div>
+<div></div>
